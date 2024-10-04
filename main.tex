@@ -3,13 +3,13 @@
 \input{preamble.tex}
 
 \title{\LaTeX 講習会}
-\author{松浦　弘泰}
-\date{2023年9月28日}
+\author{担当者 氏名}
+\date{2024年9月30日}
 \medskip
 \subtitle{物理学科内定者向けガイダンス}
 
 \titlegraphic{%
-\includegraphics[height=40pt]{UT_Science_logo.jpg}
+\includegraphics[height=40pt]{./figures/UT_Science_logo.jpg}
 }
 
 \begin{document}
@@ -35,7 +35,7 @@
     \item \textcolor{teal}{目標}：当日課題の1ページ目を自分で再現する
     \begin{figure}
         \centering
-        \includegraphics[width=8cm]{fig_kadai.pdf}
+        \includegraphics[width=10cm]{./figures/fig_kadai.pdf}
     \end{figure}
 \end{itemize}
 \end{frame}
@@ -50,21 +50,21 @@
 \end{itemize}
 \begin{figure}
     \centering
-    \includegraphics[width=7cm,pagebox=cropbox,clip]{NewDocument}
+    \includegraphics[width=7cm,pagebox=cropbox,clip]{./figures/NewDocument.pdf}
 \end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{準備：Overleaf での日本語環境の設定}
+\begin{frame}[fragile]{準備：Overleaf での日本語環境の設定 (1/2)}
 \begin{itemize}
     \item 左上のファイルアイコンをクリックして、「New File」を選択、「File Name」に「\textcolor{magenta}{latexmkrc}」を指定して「Create」を押す
     \begin{figure}
         \centering
-        \includegraphics[height=1.5cm]{fig_new_file.jpg}
+        \includegraphics[height=1.5cm]{./figures/fig_new_file.jpg}
         \qquad
-        \includegraphics[height=1.5cm]{fig_latexmkrc.pdf}
+        \includegraphics[height=1.5cm]{./figures/fig_latexmkrc.pdf}
     \end{figure}
     
     \item 左のファイル一覧に「latexmkrc」が現れるので選択し、以下の通り入力する
@@ -73,7 +73,7 @@
     $bibtex     = 'uplatex';
     $dvipdf     = 'dvipdfmx %O -o %D %S';
     $makeindex  = 'mendex %O -o %D %S';
-    $pdf_mode   = 3;
+    $pdf_mode   = 3; 
     \end{minted}
 \end{itemize}
 \alert{注}：「latexmkrc」と「main.tex」は同じフォルダ内に置く
@@ -82,18 +82,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{準備：Overleaf での日本語環境の設定（続き）}
+\begin{frame}{準備：Overleaf での日本語環境の設定（2/2）}
 \begin{itemize}
     \item 左上の「Menu」ボタンを押して、「Compiler」に「LaTeX」を選択する
     \begin{figure}
         \centering
-        \includegraphics[height=3cm]{Menu.pdf}\qquad
-        \includegraphics[height=3cm]{Compiler.pdf}
+        \includegraphics[height=3cm]{./figures/Menu.pdf}\qquad
+        \includegraphics[height=3cm]{./figures/Compiler.pdf}
     \end{figure}
     \item 「main.tex」をクリックし「Recompile」ボタンを押すと、PDFファイルが作成される
+    \\
+    （Cmd + s (macOS), Ctrl + s (Windows) でも可）
     \begin{figure}
         \centering
-        \includegraphics[height=3cm]{fig_preview.pdf}
+        \includegraphics[height=3cm]{./figures/fig_preview.pdf}
     \end{figure}
 \end{itemize}
 \end{frame}
@@ -101,12 +103,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\LaTeX{} の特徴}
+\begin{frame}[fragile]{\LaTeX{} とは}
+
+    
 \begin{itemize}
-\item \LaTeX は「ラテック」や「ラテフ」などと呼ばれる組版処理システム
+\item 「ラテック」や「ラテフ」などと呼ばれる組版処理システム
+\begin{itemize}
+    \item 組版: 文字修飾や文書・図の配置を行って紙面を作ること
+    \\（例：Nature誌のスタイルに従って文書・図・数式を配置）
+    \item 手作業でやると大変なので、ソフトウェアによって半自動化
+    \item レポート作成、修論、博論、学術論文の執筆で利用
+    \\\alert{\textbf{つまり、ここにいるほぼ全員が使う}}
+\end{itemize}
 %
 \bigskip
-\item 特に数式入りの文章が簡単に作成できる：
+\item 特に数式入りの文章の組版が得意：
     \begin{itemize}
         \item $y=x^2 + 1$, $e^{\im\,\theta} = \cos\theta + \im\,\sin\theta$, $\zeta(s) = \sum_{n=1}^\infty\,n^{-s}$, $\cdots$
     \end{itemize}
@@ -114,7 +125,7 @@
 \bigskip
 \item 様々なパッケージがあり、どんな文章も作成できる：
     \begin{itemize}
-    \item 論文やレポート、プレゼンテーション用スライド（\href{https://www.overleaf.com/learn/latex/Beamer}{Beamer}）、描画（\href{https://www.overleaf.com/learn/latex/TikZ_package}{TikZ}）、 \ldots
+    \item 論文やレポート、スライド（\href{https://www.overleaf.com/learn/latex/Beamer}{Beamer}）、描画（\href{https://www.overleaf.com/learn/latex/TikZ_package}{TikZ}）、 \ldots
     \end{itemize}
 \begin{center}
 \begin{tikzpicture}[baseline= (a).base]
@@ -141,8 +152,18 @@ D \arrow[dr,dashed,"\theta"] \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{\LaTeX の仕組み}
 \begin{itemize}
-\item 普通の文章と \LaTeX 特有の\cmd{コマンド}を使って文章を書く
-\item \LaTeX でコンパイルすると組版された文章ができあがる
+\item 普通の文章と \LaTeX 特有の\cmd{コマンド}を使ったファイルを作成
+\begin{itemize}
+    \item .texという拡張子を持ったファイル：\alert{「ソースファイル」}
+    \item これ自体は最終的に出力する文章とは\alert{全然}違う見た目
+    \item[$\Leftrightarrow$] Microsoft Office Wordなどのワードプロセッサを用いた
+    \\
+    作文とは対称的（常に最終的な紙面そのものが見える）
+\end{itemize}
+
+\item \LaTeX でタイプセットすると組版された文章ができあがる
+\\
+（Overleafの「Compile」はタイプセットと同義）
 \end{itemize}
 \vskip 2ex
 \begin{center}
@@ -160,7 +181,7 @@ D \arrow[dr,dashed,"\theta"] \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{いくつかの例}
+\begin{frame}[fragile]{コマンドから文・図・数式を出すいくつかの例}
 \begin{exampletwoup}
 \begin{itemize}
     \item \textrm{Roman}
@@ -172,7 +193,7 @@ D \arrow[dr,dashed,"\theta"] \\
 \begin{exampletwoup}
 \begin{figure}
     \includegraphics[height=1cm]
-    {UT_Science_logo.jpg}
+    {./figures/UT_Science_logo.jpg}
 \end{figure}
 \end{exampletwoup}
 \vskip 2ex
@@ -186,9 +207,9 @@ D \arrow[dr,dashed,"\theta"] \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{簡単な \LaTeX{} の文章}
+\begin{frame}[fragile]{簡単な \LaTeX{} ソースファイル}
 \begin{minted}[frame=single]{latex}
-\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx]{jsarticle}
 \begin{document}
     吾輩は猫である名前はまだ無い
     %ここはコメントです
@@ -198,10 +219,37 @@ D \arrow[dr,dashed,"\theta"] \\
 \begin{itemize}
 \item コマンドは\textcolor{blue}{バックスラッシュ} \keystrokebftt{\bs}から始まる
 \item 全ての文章は \cmdbs{documentclass} から始まる
-\item カッコ \keystrokebftt{\{} \keystrokebftt{\}}の中の引数は文章の種類を表す\\
+\begin{itemize}
+    \item カッコ \keystrokebftt{\{} \keystrokebftt{\}}の中の引数は文章の種類を表す\\
 日本語の文章では \textcolor{magenta}{\bftt{jarticle}} もしくは \textcolor{magenta}{\bftt{jsarticle}} を使う
+    \item カッコ \keystrokebftt{[} \keystrokebftt{]}の中の引数はオプションを表す
+\end{itemize}
 \item パーセント \keystrokebftt{\%}の後の文章はコメントで、 \LaTeX{} でコンパイル後は\textcolor{red}{表示されない}
 \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{ \LaTeX ソースファイルの基本構造}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.95\textwidth]{./figures/structure.pdf}
+    \end{figure}
+    \begin{itemize}
+        \item 「プリアンブル」と「本文」から構成される
+        \begin{itemize}
+            \item プリアンブル：冒頭〜\cmdbs{begin\{document\}}の手前まで
+            \begin{itemize}
+                \item 文書全体の情報（レイアウト, タイトル, 著者名など）を指定
+            \end{itemize}
+            \item 本文：\cmdbs{begin\{document\}}〜\cmdbs{end\{document\}}
+            \begin{itemize}
+                \item 実際に紙面に表示させたいもの（文章, 数式, 図など）を指定
+            \end{itemize}
+        \end{itemize}
+        
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -378,6 +426,9 @@ $\Omega = \sum_{k=1}^{n} \omega_k$
     ...
 \end{<環境名>}
 \end{minted}
+\begin{itemize}
+    \item[※] 数式環境に空白行があるとエラーになるので注意
+\end{itemize}
 \item 箇条書きには \bftt{itemize} と \bftt{enumerate} 環境を用いる：
 
 \medskip
@@ -477,7 +528,7 @@ c & d \\
 \begin{itemize}
 \item Overleaf 画面「Menu」下の「upload」ボタンを押して挿入したい図をアップロードする
 \begin{center}
-\includegraphics[width=4cm]{fig_upload.jpg}
+\includegraphics[width=4cm]{./figures/fig_upload.jpg}
 \end{center}
 
 \item 図を入れるには，プリアンブルに
@@ -557,7 +608,7 @@ c & d \\
     \item どういうエラーが出たかは「Recompile」の横のボタンを押すと確認できる
     \begin{figure}
         \centering
-        \includegraphics[height=2cm]{fig_error.pdf}
+        \includegraphics[height=2cm]{./figures/fig_error.pdf}
     \end{figure}
     \item よくあるエラー：
     \begin{itemize}
@@ -568,6 +619,36 @@ c & d \\
         
         \medskip
         \item パッケージが読み込まれていない
+    \end{itemize}
+    \item エラー文の意味がわからない場合、エラー文を\alert{そのまま}検索
+    \begin{itemize}
+        \item エラー文は定型文なので、同じ困難に遭遇した事例がみつかる
+        \item ChatGPT, Claudeなどで聞くのも有効
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\LaTeX での作文をする際に気をつけるとよいこと}
+\begin{itemize}
+    \item できる限り常にエラーのない状態を保つ
+    \begin{itemize}
+        \item \LaTeX のエラーメッセージは正直読みにくい
+        \item[$\Rightarrow$] たくさん書いて一気にタイプセットして大量のエラーが
+        \\ 出るのは最悪
+    \end{itemize}
+    \item まずエラーなしでタイプセットが通る最小のファイルを作る
+    \begin{itemize}
+        \item 空のファイル、文章１行だけ、タイトルだけのファイル, etc.
+    \end{itemize}
+    \item その後、少し変更を加えるたびにタイプセットを繰り返す
+    \begin{itemize}
+        \item 想定どおりにエラーなく変更が反映されているか？
+        \item 「これくらいはまだ大丈夫だろう」と思うあたりでタイプセットしておくとよい
+        \item コンパイル時間が短いファイルの場合、文章数行、数式1-2行, 図1つ書くくらいでタイプセットするくらい（つまり、編集中はほぼずっとタイプセットし直しているくらい）でよい
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -584,6 +665,11 @@ c & d \\
     \item Free online introduction to \LaTeX (part 1): \url{https://www.overleaf.com/learn/latex/Free_online_introduction_to_LaTeX_(part_1)}
     \item \TeX{} Wiki（日本語 \TeX の情報）：\\
     \url{https://texwiki.texjp.org}
+    \item 日本語書籍（いずれも理学図書館にあり）:
+    \begin{itemize}
+        \item 明松真司 (2022) 「1週間でLaTeXの基礎が学べる本」インプレス
+        \item 奥村晴彦, 黒木裕介 (2023)「\LaTeX 美文書作成入門」技術評論社
+    \end{itemize}
 \end{itemize}
 \end{frame}
 

@@ -11,3 +11,4 @@ _minted-*
 *.toc
 *.vrb
 main.pdf
+.DS_Store
