@@ -9,5 +9,5 @@ $ latexmk
 ```
 もしくは
 ```
-$ ptex2pdf -l -ot "-synctex=1 -file-line-error -shell-escape" main.tex
+$ ptex2pdf -u -l -ot "-synctex=1 -file-line-error -shell-escape" main.tex
 ```

@@ -33,11 +33,11 @@
     
     \bigskip
     \item \textcolor{teal}{目標}：当日課題の1ページ目を自分で再現する
-    \begin{figure}
-        \centering
-        \includegraphics[height=0.58\textheight,keepaspectratio]{./figures/fig_kadai.pdf}
-    \end{figure}
 \end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[height=0.58\textheight,keepaspectratio]{./figures/fig_kadai.pdf}
+\end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,7 +70,7 @@
     \item 左のファイル一覧に「latexmkrc」が現れるので選択し、以下の通り入力する
     \begin{minted}[frame=single]{bash}
     $latex      = 'uplatex';
-    $bibtex     = 'uplatex';
+    $bibtex     = 'upbibtex';
     $dvipdf     = 'dvipdfmx %O -o %D %S';
     $makeindex  = 'mendex %O -o %D %S';
     $pdf_mode   = 3; 
@@ -103,7 +103,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\LaTeX{} とは}
+\begin{frame}[fragile,shrink=20]{\LaTeX{} とは}
 
     
 \begin{itemize}
@@ -128,7 +128,7 @@
     \item 論文やレポート、スライド（\href{https://www.overleaf.com/learn/latex/Beamer}{Beamer}）、描画（\href{https://www.overleaf.com/learn/latex/TikZ_package}{TikZ}）、 \ldots
     \end{itemize}
 \begin{center}
-\begin{tikzpicture}[baseline= (a).base]
+\begin{tikzpicture}[baseline=(a.base)]
 \node[scale=.8] (a) at (0,0){
 \begin{tikzcd}
 A \arrow[d,"f"'] \arrow[r,"g"] &
@@ -209,7 +209,7 @@ D \arrow[dr,dashed,"\theta"] \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{簡単な \LaTeX{} ソースファイル}
 \begin{minted}[frame=single]{latex}
-\documentclass[dvipdfmx]{jsarticle}
+\documentclass[uplatex,dvipdfmx]{jsarticle}
 \begin{document}
     吾輩は猫である名前はまだ無い
     %ここはコメントです
